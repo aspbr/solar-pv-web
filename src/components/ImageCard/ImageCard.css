@@ -1,0 +1,9 @@
+.img-size {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.image-card-container {
+    margin-left: calc(50% - 250px);
+}

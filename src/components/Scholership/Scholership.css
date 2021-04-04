@@ -1,0 +1,12 @@
+.sch-div {
+    height: 70%;
+    top: 15%;
+    position: absolute;
+    width: 70%;
+    margin: 0 15%;
+}
+
+.sch-form {
+    height: calc(100% - 50px);
+    overflow: scroll;
+}

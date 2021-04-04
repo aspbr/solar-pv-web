@@ -1,0 +1,18 @@
+.login-header {
+    height: 50px;
+    background-color: #132d68;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.login-cont {
+    top: 15%;
+    width: 50%;
+    position: absolute;
+    display: table;
+    height: 70%;
+    margin-left: 25%;
+}

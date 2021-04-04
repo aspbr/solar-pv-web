@@ -1,0 +1,27 @@
+.feature-tabs {
+    height: 50px;
+    /* border-top: 1px solid black; */
+    display: flex;
+    background: #132d68;
+    overflow: scroll;
+    font-weight: bold;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.tab-button {
+    border: none;
+    margin: 10px;
+    font-size: medium;
+    background-color: transparent;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.tab-div {
+    width: 20%;
+}

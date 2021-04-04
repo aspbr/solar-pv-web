@@ -1,0 +1,14 @@
+.left-nav {
+    width: 20%;
+    position: absolute;
+    height: calc(100% - 50px);
+    margin-left: 70%;
+    background-color: #d8e2f8;
+    overflow: scroll;
+}
+
+.news-panel {
+    margin: 10px;
+    overflow-wrap: break-word;
+    color:  #132d68;
+}

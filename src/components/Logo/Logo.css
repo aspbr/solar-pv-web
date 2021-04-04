@@ -1,0 +1,32 @@
+.logo-container {
+    height: 100%;
+    width: 400px;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    background-image: url('../../images/logo.png');
+}
+
+.logo-button {
+    height: 100%;
+    width: 100%;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    .logo-container {
+        height: 100px;
+        width: 300px;
+
+    }
+  }
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    .logo-container {
+        height: 100px;
+        width: 300px;
+
+    }
+  }

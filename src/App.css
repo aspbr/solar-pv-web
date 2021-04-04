@@ -1,0 +1,21 @@
+.App {
+    /* background-image: url(https://fsb.zobj.net/crop.php?r=Z6KXy4nieHmXljWS8beOD9P_arrG54rYY-F28WVhUnfuBPyeBSrDCh6EptyRFUxWKWqvBWm1G9oG1TAEktrFOKhOk_nt3F4U7DQXfWCLEJkeaqwIODhsjpykk9XW0e2DMxCHQ3I_CorjVxHT); */
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    width: 90%;
+    /* object-fit: cover; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+    margin: 0 5%;
+}
+
+
+#root {
+/*     background-color: yellow;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-image: url('https://previews.123rf.com/images/jaboy/jaboy1304/jaboy130400305/19180019-background-yellow-sky-light.jpg'); */
+}

@@ -1,0 +1,41 @@
+.right-nav {
+    width: 20%;
+    /* border: 1px solid black; */
+    position: absolute;
+    height: calc(100% - 50px);
+    /* background: transparent; */
+    background-color:#d8e2f8;
+    overflow: scroll;
+    color:  #132d68;
+}
+
+.options-panel {
+    margin: 10px;
+    overflow-wrap: break-word;
+}
+
+.login-div {
+    display: flex;
+}
+
+.register-button,
+.login-button,
+.dashboard-button {
+    height: 50px;
+    font-size: 16px;
+    line-height: 18px;
+    background-color: #132d68;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    margin: 5px;
+}
+
+.register-button:hover,
+.login-button:hover,
+.dashboard-button:hover {
+    color: #11275a;
+    background-color: white;
+}
+

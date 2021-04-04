@@ -1,0 +1,26 @@
+.reg-cont {
+    top: 15%;
+    width: 100%;
+    position: absolute;
+    display: table;
+    height: 70%;
+}
+
+.reg-header {
+    height: 50px;
+    background-color: #132d68;
+    width: 100%;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.reg-header-title {
+    font-size: 1.5em;
+    text-align: center;
+    display: block;
+    height: 50px;
+    padding-top: 10px;
+}

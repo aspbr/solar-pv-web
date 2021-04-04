@@ -1,0 +1,35 @@
+.sort-by-div {
+    height: 50px;
+    font-size: 18px;
+    color: #132d68;
+    width: 100%;
+    display: flex;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.gallery-content {
+    overflow: scroll;
+    position: absolute;
+    height: calc(90% - 50px);
+    width: 100%;
+    margin-top: 20px;
+}
+
+.group-title {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 18px;
+}
+
+.group-title-div {
+    height: 20px;
+    border: 2px solid #132d68;
+    /* border-top: 2px dotted #132d68; */
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 10px;
+    width: fit-content;
+    background-color: #132d68;
+    color: white;
+}

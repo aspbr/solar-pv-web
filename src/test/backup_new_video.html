@@ -1,0 +1,162 @@
+{% load static %}
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>Upload video page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css'%}">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="{% static 'components/SmartSignalHeader/SmartSignalHeader.js'%}"></script>
+  <style>
+    table {
+      border: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <smart-signal-header name="{{user.first_name}}" isAuthenticated="{{user.is_authenticated}}"></smart-signal-header>
+  {% csrf_token %}
+  {% block content %}
+
+  {% if user.is_superuser %}
+  <script type="text/javascript" src="{% static 'components/SmartSignalSidebar/smartSignalSidebarAdmin.js'%}"></script>
+  <smart-signal-sidebar-admin></smart-signal-sidebar-admin>
+  {% else %}
+  <script type="text/javascript" src="{% static 'components/SmartSignalSidebar/smartSignalSidebarUser.js'%}"></script>
+  <smart-signal-sidebar-user name="{{ user }}"></smart-signal-sidebar-user>
+  {% endif %}
+  <div class="ss-main-container">
+    <img class="ss-default-bg" src="/static/images/Ecube_logo.png" />
+    <form action="new_uploadvideo" method="POST" enctype="multipart/form-data">
+      <table border="0" width="680px" cellpadding="0" cellspacing="0" align="left">
+        <!--	<table border="0" align="center" width="700" bgcolor="#CCCCCC" >  -->
+        <tr>
+          <th style="border:none;">Select location:</th>
+          <td style="border:none;">
+            {% if user.is_superuser %}
+            <div>
+              <label for="company_name"></label>
+              <select id="company_name" name="company_name">
+                {% for cnm in full_list %}
+                <option value="{{cnm}}">{{cnm}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            {% else %}
+            <div>
+              <label for="signal"></label>
+              <select id="signal" name="signal">
+                {% for client in city_names %}
+                <option value="{{client}}">{{client}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <td style="border:none;"> &nbsp;&nbsp; </td>
+        </tr>
+        <tr>
+          <th style="border:none;"> Choose approximate video length: </th>
+          <td style="border:none;">
+            <label for="video_length"></label>
+            <select id="video_length" name="video_length">
+              {% for l in vid_len %}
+              <option value="{{l}}">{{l}}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td style="border:none;"> &nbsp;&nbsp; </td>
+        </tr>
+        <tr>
+          <th style="border:none;"> Enter Frequncy:</th>
+          <td style="border:none;">
+            <input type="number" id="freq" name="freq" min="1" max="100"/><br><br>
+          </td>
+        </tr>
+        <tr>
+          <th style="border:none;"> Enter subscription period(in numeber of days):</th>
+          <td style="border:none;">
+            <input type="number" id="expiry_date" name="expiry_date" min="1" max="100"><br><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="border:none;"> &nbsp; </td>
+        </tr>
+        <tr>
+          <th style="border:none;">Select video to upload:</th>
+          <td style="border:none;">
+            <input type="file" name="fileToUpload" id="fileToUpload" accept="video/*" required>
+            {% if uploaded_file_url %}
+            <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+            {% endif %}
+            <br />
+
+          </td>
+        </tr>
+        <tr style="border:none;">
+          <td style="border:none;"> &nbsp; </td>
+        </tr>
+        <tr style="border:none;">
+          <td colspan="2" style="border:none;" align="center">
+            <input type="submit" value="Upload video" name="submit" id="uploadBtn" disabled/>
+          </td>
+        </tr>
+        {% endblock %}
+      </table>
+      <div class="footer">
+        <p>Developed by Ecube integrated solutions (OPC) private limited </p>
+      </div>
+
+      Duration: <input type="text" name="f_du" id="f_du" size="5" /> seconds<br>
+      <input type="submit" value="Upload" />
+
+    </form>
+
+    <audio id="audio"></audio>
+  </div>
+  <script>
+
+  var actual_vid_length = 0;
+  document.getElementById('audio').addEventListener('canplaythrough', function(e){
+    actual_vid_length = Math.round(e.currentTarget.duration);
+    var expected_max_vdo_length = parseInt($("#video_length").val())
+    document.getElementById('f_du').value = actual_vid_length;
+    if (expected_max_vdo_length > actual_vid_length && expected_max_vdo_length - actual_vid_length > 10) {
+      alert('Video length does not match with input video length. Please make sure the difference in duration is less than 10 seconds.')
+    } else {
+      $('#uploadBtn').prop('disabled', false);
+    }
+    
+    URL.revokeObjectURL(obUrl);
+  });
+  
+  var obUrl;
+  document.getElementById('fileToUpload').addEventListener('change', function(e){
+    var file = e.currentTarget.files[0];
+    if(file.name.match(/\.(avi|mp3|mp4|mpeg|ogg)$/i)){
+      obUrl = URL.createObjectURL(file);
+      document.getElementById('audio').setAttribute('src', obUrl);
+    }
+  });
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+.contact-div {
+    margin-left: 60%;
+    width: 40%;
+    position: fixed;
+    height: 15%;
+    padding: 0 10%;
+}
+
+.contact-btn {
+    border: none;
+    background-color: transparent;
+    color: #132d68;
+    font-weight: bold;
+    height: 50px;
+    font-size: 18px;
+    margin: 10px;
+}
+
+.media-icons {
+    font-size: 30px;
+    margin: 10px;
+    line-height: 30px;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    .contact-div {
+        margin-left: 300px;
+        width: calc(100% - 300px);
+    }
+
+    .media-icons-div {
+        position: absolute;
+        top: 70px;
+    }
+  }
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    .contact-div {
+        margin-left: 300px;
+        width: calc(100% - 300px);
+        position: fixed;
+        height: 15%;
+        display: inline-flex;
+    }
+    .media-icons-div {
+        position: absolute;
+        top: 70px;
+    }
+  }

@@ -1,0 +1,39 @@
+.reg-form {
+    /* margin: 0 20%; */
+    border: 2px solid #132d68;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.register-submit {
+    width: 40%;
+    align-items: revert;
+    margin-left: calc(50% - 105px);
+}
+
+.submit-btn,
+.reset-btn {
+    height: 50px;
+    font-size: 18px;
+    color: white;
+    background-color: #132d68;
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.reset-btn {
+    background-color: lightgray;
+    color: #132d68;
+}
+
+.submit-btn:hover { 
+    color: #0a1838; 
+    background-color: white;
+}
+
+.reset-btn:hover {
+    background-color: gray;
+}

@@ -1,0 +1,8 @@
+.gallery-container {
+    border: 1px solid red;
+    top: 15%;
+    height: 70%;
+    position: absolute;
+    width: 100%;
+    overflow: scroll;
+}

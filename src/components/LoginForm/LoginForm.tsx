@@ -1,18 +1,7 @@
-
 import { Grid, makeStyles, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import './LoginForm.css'
-import Button from '@material-ui/core/Button';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import { Select } from '@material-ui/core';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import NativeSelect from '@material-ui/core/NativeSelect';
-import MenuItem from '@material-ui/core/MenuItem';
+import { useHistory } from 'react-router-dom';
 
 const initialValues = {
     username: '', 
@@ -36,6 +25,15 @@ const useStyle = makeStyles(theme => ({
 
 export default function LoginForm(props: any) {
 
+    let history = useHistory();
+
+    const gotoHomePage = () => {
+        history.push('/')
+      }
+
+    const goToDjangoAdminPage = () => {
+        window.location.href = 'http://localhost:8000/admin/'
+    }
 
     const [values, setValues] = useState(initialValues)
     const [errors, setErrors] = useState({
@@ -68,8 +66,11 @@ export default function LoginForm(props: any) {
     const handleSubmit = (event: any) => {
         event.preventDefault()
         if(validate()) {
-            alert('Form is valid')
-        }
+            if(values.username === 'a')
+                gotoHomePage()
+            else
+                goToDjangoAdminPage()
+        } 
         
     }
 

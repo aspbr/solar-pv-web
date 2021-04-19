@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import './Main.css'
 import Views from '../Views/Views';
 
-class Main extends Component {
-    render() {
+interface MainProps {
+    history: any;
+  }
+
+export default function Main(props: MainProps) {
         return (
             <div className="spv-main">
-                <Views />
+                <Views history={props.history}/>
             </div>
         );
-    }
 }
-
-export default Main;

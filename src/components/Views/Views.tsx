@@ -4,7 +4,7 @@ import FeatureTabs from './FeatureTabs/FeatureTabs';
 import './Views.css'
 
 interface ViewsProps {
-
+    history: any
 }
 
 interface ViewsState {

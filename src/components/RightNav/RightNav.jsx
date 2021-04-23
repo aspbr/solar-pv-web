@@ -27,7 +27,9 @@ class RightNav extends Component {
 
                 <h3>PV Module</h3>
                 <ul>
-                    <li>Testing & Certification</li>
+                    <li>
+                        <a href="/certificatelist" className="a-button">Testing & Certification</a>
+                    </li>
                     <li>PV Rating</li>
                 </ul>
 

@@ -5,10 +5,10 @@ import { Dispatch } from 'redux'
 
 export const fetchCertificates = () => async (dispatch: Dispatch) => {
     let response = await axios.get(`http://localhost:8000/backend/certificate-list/`)
-    let cameras = response.data
+    let certificates = response.data
   
     dispatch({
       type: FETCH_CERTIFICATES,
-      payload: cameras
+      payload: certificates
     })
   }

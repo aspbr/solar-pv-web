@@ -1,0 +1,12 @@
+.cert-list {
+    width: 50%;
+    float: left;
+}
+
+.cert-name-filter {
+height: 50px;
+width: 300px;
+line-height: 16px;
+font-size: 16px;
+margin-bottom: 20px;
+}

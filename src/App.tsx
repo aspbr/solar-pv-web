@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -20,10 +20,21 @@ import ProductForm from './components/ProductForm/ProductForm';
 import TestStandardForm from './components/TestStandardForm/TestStandardForm';
 import LocationForm from './components/LocationForm/LocationForm';
 import CertificateForm from './components/CertificateForm/CertificateForm';
+import CertificateList from './components/CertificateList/CertificateList';
+import { fetchCertificates } from './store/certificates/actions';
+import { useDispatch } from 'react-redux';
 
 library.add(faFacebook)
 
 function App() {
+
+  let dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(
+            fetchCertificates()
+        )
+  }, [dispatch])
+  
   return (
     <div className="App">
         <Router>
@@ -44,6 +55,7 @@ function App() {
               <Route exact path="/test_standard" component={TestStandardForm} />
               <Route exact path="/location" component={LocationForm} />
               <Route exact path="/certificate" component={CertificateForm} />
+              <Route exact path="/certificatelist" component={CertificateList} />
             </div>
           <Footer />
         </Router>

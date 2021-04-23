@@ -1,14 +1,13 @@
 import { FETCH_CERTIFICATES } from './constants'
 
 export interface ICertificate {
-    certificateId: number,
-    certificateNumber: string,
+    id: number,
     location: string,
-    reportNumber: string,
-    contactId: string,
-    testStandardId: string,
-    productId: string,
-    certIssueDate: string
+    report_number: string,
+    user: string,
+    standard: string,
+    product: string,
+    issue_date: string
 }
 
 export interface fetchCertificates {
